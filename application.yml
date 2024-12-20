@@ -1,0 +1,27 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: shutdown
+  endpoint:
+    shutdown:
+      enabled: true
+eureka:
+  instance:
+    prefer-ip-address: true
+    # lease-expiration-duration-in-seconds: 5
+    # lease-renewal-interval-in-seconds:    2
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
+# okta:
+#   oauth2:
+#     issuer: https://dev-35510211.okta.com/oauth2/default
+#     audiance: api://default
+# spring:
+#   zipkin:
+#     baseUrl:http://zipkin-svc:9411
