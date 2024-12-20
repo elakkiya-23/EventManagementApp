@@ -3,13 +3,13 @@ server:
 spring:
   application:
     name: EVENT-SERVICE
-  eureka:
-    client:
-      defaultZone: localhost
-      register-with-eureka: true
-      fetch-registry: true
-    instance:
-      prefer-ip-address: true
+#  eureka:
+#    client:
+#      defaultZone: localhost
+#      register-with-eureka: true
+#      fetch-registry: true
+#    instance:
+#      prefer-ip-address: true
 
   datasource:
     url: jdbc:mysql://localhost:3306/event_management
