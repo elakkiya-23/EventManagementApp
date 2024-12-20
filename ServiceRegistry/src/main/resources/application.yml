@@ -1,0 +1,15 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: SERVICE-REGISTRY
+eureka:
+  server:
+    enable-self-preservation: false
+    expected-client-renewal-interval-seconds: 3
+    eviction-interval-timer-in-ms: 2000
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
