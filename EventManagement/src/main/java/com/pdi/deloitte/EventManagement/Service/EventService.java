@@ -21,11 +21,16 @@ public class EventService {
     private final CategoryRepository categoryRepository;
 
 
+
     @Autowired
     public EventService(EventRepository eventRepository,VenueRepository venueRepository,CategoryRepository categoryRepository) {
         this.eventRepository = eventRepository;
         this.venueRepository = venueRepository;
         this.categoryRepository = categoryRepository;
+    }
+
+    public List<Event> findEventsByDate(LocalDate date) {
+        return eventRepository.findByDate(date);
     }
     // Check if the venue is available for the given date and time
     public boolean isVenueAvailable(Long venueId, LocalDate date, String startTime, String endTime) {

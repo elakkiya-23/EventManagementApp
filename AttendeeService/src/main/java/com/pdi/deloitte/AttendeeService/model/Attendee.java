@@ -21,6 +21,9 @@ public class Attendee
 
     private Long eventId;
 
+    @Transient
+    private Event eventDetails;
+
     // Getters and Setters
     public Long getId() {
         return id;
@@ -68,5 +71,13 @@ public class Attendee
 
     public void setEventId(Long eventId) {
         this.eventId = eventId;
+    }
+
+    public Event getEventDetails() {
+        return eventDetails;
+    }
+
+    public void setEventDetails(Event eventDetails) {
+        this.eventDetails = eventDetails;
     }
 }

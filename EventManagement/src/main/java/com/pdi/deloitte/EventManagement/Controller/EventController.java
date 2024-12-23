@@ -5,10 +5,12 @@ import com.pdi.deloitte.EventManagement.Service.EventService;
 import com.pdi.deloitte.EventManagement.Exception.VenueAlreadyBookedException;
 import com.pdi.deloitte.EventManagement.Exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,6 +22,12 @@ public class EventController {
     @Autowired
     public EventController(EventService eventService) {
         this.eventService = eventService;
+    }
+
+    @GetMapping("/by-date")
+    public List<Event> getEventsByDate(@RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+        // Logic to fetch events by date
+        return eventService.findEventsByDate(date);
     }
 
     // Create

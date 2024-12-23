@@ -29,4 +29,5 @@ public interface EventRepository extends JpaRepository<Event, Long>
             "AND e.id != :currentEventId")
     List<Event> findConflictingEventsExcludingCurrent(Long venueId, LocalDate date, String startTime, String endTime, Long currentEventId);
 
+    List<Event> findByDate(LocalDate date);
 }
